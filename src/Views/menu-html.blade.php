@@ -33,6 +33,7 @@ $currentUrl = url()->current();
 									<div class="clear"></div>
 
 									<form id="nav-menu-meta" action="" class="nav-menu-meta" method="post" enctype="multipart/form-data">
+										@csrf
 										<div id="side-sortables" class="accordion-container">
 											<ul class="outer-border">
 												<li class="control-section accordion-section  open add-page" id="add-page">
@@ -85,6 +86,7 @@ $currentUrl = url()->current();
 								<div id="menu-management-liquid">
 									<div id="menu-management">
 										<form id="update-nav-menu" action="" method="post" enctype="multipart/form-data">
+											@csrf
 											<div class="menu-edit ">
 												<div id="nav-menu-header">
 													<div class="major-publishing-actions">
