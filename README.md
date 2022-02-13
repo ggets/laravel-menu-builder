@@ -2,7 +2,7 @@
 
 ### *This package was forked from a previously abandoned one: It will take some time to fix support for laravel 9+ and the rest of the issues. Please be patient if you are in a search for a working version of the menu builder. Thank you!
 
-[![Latest Stable Version](https://poser.pugx.org/ggets/laravel-menu/v/stable)](https://packagist.org/packages/ggets/laravel-menu) [![Latest Unstable Version](https://poser.pugx.org/ggets/laravel-menu/v/unstable)](https://packagist.org/packages/ggets/laravel-menu) [![Total Downloads](https://poser.pugx.org/ggets/laravel-menu/downloads)](https://packagist.org/packages/ggets/laravel-menu) [![Monthly Downloads](https://poser.pugx.org/ggets/laravel-menu/d/monthly)](https://packagist.org/packages/ggets/laravel-menu)
+[![Latest Stable Version](https://poser.pugx.org/ggets/laravel-menu-builder/v/stable)](https://packagist.org/packages/ggets/laravel-menu-builder) [![Latest Unstable Version](https://poser.pugx.org/ggets/laravel-menu-builder/v/unstable)](https://packagist.org/packages/ggets/laravel-menu-builder) [![Total Downloads](https://poser.pugx.org/ggets/laravel-menu-builder/downloads)](https://packagist.org/packages/ggets/laravel-menu-builder) [![Monthly Downloads](https://poser.pugx.org/ggets/laravel-menu-builder/d/monthly)](https://packagist.org/packages/ggets/laravel-menu-builder)
 
 forked from https://github.com/lordmacu/wmenu
 ![Laravel drag and drop menu](https://raw.githubusercontent.com/ggets/wmenu-builder/master/screenshot.png)
@@ -12,7 +12,7 @@ forked from https://github.com/lordmacu/wmenu
 1. Run
 
 ```php
-composer require ggets/laravel-menu
+composer require ggets/laravel-menu-builder
 ```
 
 **_Step 2 & 3 are optional if you are using laravel 5.5_**
