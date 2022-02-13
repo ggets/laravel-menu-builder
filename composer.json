@@ -1,38 +1,43 @@
 {
-    "name": "harimayco/laravel-menu",
-    "description": "drag and drop menu generator like wordpress for laravel 5",
-    "keywords": ["Laravel", "Menu", "Wordpress", "Builder"],
-    "authors": [
-    	{
-            "name": "Rendy Harimayco",
-            "email": "rendyharimayco@gmail.com",
-            "role": "Developer"
-        },
-        {
-            "name": "Cristian Garcia",
-            "email": "informacion@cristiangarcia.co",
-            "role" : "Original Developer"
-        }
-    ],
-    "require": {
-        "php": ">=7.2",
-        "illuminate/support": "5.* || 6.* || 7.* || 8.*"
-    },
-    "autoload": {
-        "psr-4": {
-          "Harimayco\\Menu\\": "src/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Harimayco\\Menu\\MenuServiceProvider"
-            ],
-            "aliases": {
-                "Menu": "Harimayco\\Menu\\Facades\\Menu"
-            }
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+	"name": "ggets/laravel-menu-builder",
+	"description": "Drag and Drop menu generator like Wordpress for Laravel 9",
+	"keywords": ["Laravel", "Menu", "Wordpress", "Builder"],
+	"authors": [
+		{
+			"name": "Galen Getsov",
+			"email": "4815620+ggets@users.noreply.github.com",
+			"role": "Developer"
+		},
+		{
+			"name": "Rendy Harimayco",
+			"email": "rendyharimayco@gmail.com",
+			"role": "Developer"
+		},
+		{
+			"name": "Cristian Garcia",
+			"email": "informacion@cristiangarcia.co",
+			"role" : "Original Developer"
+		}
+	],
+	"require": {
+		"php": ">=7.2 || ^8.1",
+		"illuminate/support": "5.* || 6.* || 7.* || 8.*"
+	},
+	"autoload": {
+		"psr-4": {
+		  "ggets\\Menu\\": "src/"
+		}
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"ggets\\Menu\\MenuServiceProvider"
+			],
+			"aliases": {
+				"Menu": "ggets\\Menu\\Facades\\Menu"
+			}
+		}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
 }

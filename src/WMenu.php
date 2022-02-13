@@ -1,10 +1,10 @@
 <?php
 
-namespace Harimayco\Menu;
+namespace ggets\Menu;
 
 use App\Http\Requests;
-use Harimayco\Menu\Models\Menus;
-use Harimayco\Menu\Models\MenuItems;
+use ggets\Menu\Models\Menus;
+use ggets\Menu\Models\MenuItems;
 use Illuminate\Support\Facades\DB;
 
 class WMenu
