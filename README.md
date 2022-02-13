@@ -1,6 +1,6 @@
 # Laravel Drag and Drop menu editor like wordpress
 
-### *This package is abandoned: I'm not maintaining this package anymore, please contact me if you want to take over this project or feel free to fork and make your own. Thank you 
+### *This package was forked from a previously abandoned one: It will take some time to fix support for laravel 9+ and the rest of the issues. Please be patient if you are in a search for a working version of the menu builder. Thank you!
 
 [![Latest Stable Version](https://poser.pugx.org/harimayco/laravel-menu/v/stable)](https://packagist.org/packages/harimayco/laravel-menu) [![Latest Unstable Version](https://poser.pugx.org/harimayco/laravel-menu/v/unstable)](https://packagist.org/packages/harimayco/laravel-menu) [![Total Downloads](https://poser.pugx.org/harimayco/laravel-menu/downloads)](https://packagist.org/packages/harimayco/laravel-menu) [![Monthly Downloads](https://poser.pugx.org/harimayco/laravel-menu/d/monthly)](https://packagist.org/packages/harimayco/laravel-menu)
 
