@@ -34,7 +34,7 @@ class MenuServiceProvider extends ServiceProvider{
 	 * @return void
 	 */
 	public function register(){
-		$this->app->bind('ggets-menu',function(){
+		$this->app->bind('ggets-menu-builder',function(){
 			return new Renderer();
 		});
 		$this->app->make('ggets\MenuBuilder\Controllers\MenuController');
