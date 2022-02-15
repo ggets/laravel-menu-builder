@@ -2360,7 +2360,7 @@
 }
 #hwpwrap .menu .sortable-placeholder {
   height: 35px;
-  width: 410px;
+  /*width: 410px;*/
   margin-top: 13px;
 }
 #hwpwrap .menu-item-depth-0 {
