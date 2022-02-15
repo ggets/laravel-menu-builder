@@ -116,14 +116,15 @@ function deleteItem(id){
 }
 function createMenu(){
 	if(!!$('#menu-name').val()){
-	$.ajax({
-	dataType:'json',
+		$.ajax({
+			dataType:'json',
 			data:{
-				menuname:$('#menu-name').val()},
+				menuname:$('#menu-name').val()
+			},
 			url:window.LFWO.routes.menu_builder.create_menu,
 			type:'POST',
 			success:function(response){
-				window.location=(window.LFWO.csrf.token+'?menu='+response.resp);
+				window.location=(window.LFWO.menu_builder.menuwr+'?menu='+response.resp);
 			}
 		});
 	}
