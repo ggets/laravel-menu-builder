@@ -75,9 +75,9 @@ $currentUrl = url()->current();
 																@csrf
 																<div id="side-sortables" class="accordion-container">
 																	<ul class="outer-border">
-																		<li class="control-section accordion-section  open add-page" id="add-page">
+																		<li class="control-section accordion-section add-page" id="add-page">
 																			<h3 class="accordion-section-title hndle" tabindex="0"> Add Menu Item <span class="screen-reader-text">Press return or enter to expand</span></h3>
-																			<div class="accordion-section-content ">
+																			<div class="accordion-section-content" style="display: none;">
 																				<div class="inside">
 																					<div class="customlinkdiv" id="customlinkdiv">
 																						<p id="menu-item-url-wrap">

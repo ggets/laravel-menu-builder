@@ -2042,6 +2042,9 @@
 #hwpwrap .menu-edit #post-body-content h3 {
   margin: 1em 0 10px;
 }
+#hwpwrap .menu-edit #post-body-content .add-page h3.accordion-section-title {
+  margin: 0 0 0;
+}
 #hwpwrap .menu-settings {
   border-top: 1px solid #eee;
   margin-top: 2em;
