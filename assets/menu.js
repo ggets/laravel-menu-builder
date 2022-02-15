@@ -1,6 +1,8 @@
-var arraydata = [];
-function getmenus() {
-  arraydata = [];
+window.LFWO=(window.LFWO||{});
+window.LFWO.menu_builder=(window.LFWO.menu_builder||{});
+window.LFWO.menu_builder.arraydata=(window.LFWO.menu_builder.arraydata||[]);
+function getMenus() {
+  window.LFWO.menu_builder.arraydata = [];
   $('#spinsavemenu').show();
 
   var cont = 0;
@@ -26,7 +28,7 @@ function getmenus() {
     ) {
       padre = textoexplotado[textoexplotado.length - 2];
     }
-    arraydata.push({
+    window.LFWO.menu_builder.arraydata.push({
       depth: dept,
       id: id[2],
       parent: padre,
@@ -34,11 +36,11 @@ function getmenus() {
     });
     cont++;
   });
-  updateitem();
-  actualizarmenu();
+  updateItem();
+  updateMenu();
 }
 
-function addcustommenu() {
+function createItem() {
   $('#spincustomu').show();
 
   $.ajax({
@@ -49,7 +51,7 @@ function addcustommenu() {
       idmenu: $('#idmenu').val()
     },
 
-    url: addcustommenur,
+    url: route_menu_builder_create_item,
     type: 'POST',
     success: function(response) {
       window.location.reload();
@@ -60,7 +62,7 @@ function addcustommenu() {
   });
 }
 
-function updateitem(id = 0) {
+function updateItem(id = 0) {
   if (id) {
     var label = $('#idlabelmenu_' + id).val();
     var clases = $('#clases_menu_' + id).val();
@@ -108,7 +110,7 @@ function updateitem(id = 0) {
   }
   $.ajax({
     data: data,
-    url: updateitemr,
+    url: route_menu_builder_update_item,
     type: 'POST',
     beforeSend: function(xhr) {
       if (id) {
@@ -124,53 +126,87 @@ function updateitem(id = 0) {
   });
 }
 
-function actualizarmenu() {
-  $.ajax({
-    dataType: 'json',
-    data: {
-      arraydata: arraydata,
-      menuname: $('#menu-name').val(),
-      idmenu: $('#idmenu').val()
-    },
-
-    url: generatemenucontrolr,
-    type: 'POST',
-    beforeSend: function(xhr) {
-      $('#spincustomu2').show();
-    },
-    success: function(response) {
-      console.log('aqu llega');
-    },
-    complete: function() {
-      $('#spincustomu2').hide();
-    }
-  });
-}
-
-function deleteitem(id) {
+function deleteItem(id) {
   $.ajax({
     dataType: 'json',
     data: {
       id: id
     },
-
-    url: deleteitemmenur,
+    url: route_menu_builder_delete_item,
     type: 'POST',
     success: function(response) {}
   });
 }
 
-function deletemenu() {
-  var r = confirm('Do you want to delete this menu ?');
-  if (r == true) {
+function createMenu() {
+  if (!!$('#menu-name').val()) {
     $.ajax({
       dataType: 'json',
 
       data: {
-        id: $('#idmenu').val()
+        menuname: $('#menu-name').val()
       },
 
-      url: deletemenugr,
+      url: route_menu_builder_create_menu,
+      type: 'POST',
+      success: function(response) {
+        window.location = window.LFWO.csrf.token + '?menu=' + response.resp;
+      }
+    });
+  } else {
+    alert('Enter menu name!');
+    $('#menu-name').focus();
+    return false;
+  }
+}
+
+function updateMenu() {
+  $.ajax({
+    dataType: 'json',
+    data: {
+      arraydata: window.LFWO.menu_builder.arraydata,
+      menuname: $('#menu-name').val(),
+      idmenu: $('#idmenu').val()
+    },
+    url: route_menu_builder_update_menu,
+    type: 'POST',
+    beforeSend: function(xhr) {
+      $('#spincustomu2').show();
+    },
+    success: function(response) {
+    },
+    complete: function() {
+      $('#spincustomu2').hide();
+    },
+    statusCode: {
+      200: function() {
+        console.log('saved.');
+      },
+      500: function() {
+        alert("Script exhausted");
+      }
+    }
+  })
+    .done(function(data) {
+        // success function
+    })
+    .always(function(jqXHR){
+        console.log(jqXHR);
+        if(jqXHR.status==500 || jqXHR.status==0){
+            // internal server error or internet connection broke  
+        }
+    });
+}
+
+function deleteMenu() {
+  var r = confirm('Do you want to delete this menu ?');
+  if (r == true) {
+    $.ajax({
+      dataType: 'json',
+      data: {
+        id: $('#idmenu').val()
+      },
+      url: route_menu_builder_delete_menu,
       type: 'POST',
       beforeSend: function(xhr) {
         $('#spincustomu2').show();
@@ -178,7 +214,7 @@ function deletemenu() {
       success: function(response) {
         if (!response.error) {
           alert(response.resp);
-          window.location = menuwr;
+          window.location = window.LFWO.menu_builder.menuwr;
         } else {
           alert(response.resp);
         }
@@ -188,28 +224,6 @@ function deletemenu() {
       }
     });
   } else {
-    return false;
-  }
-}
-
-function createnewmenu() {
-  if (!!$('#menu-name').val()) {
-    $.ajax({
-      dataType: 'json',
-
-      data: {
-        menuname: $('#menu-name').val()
-      },
-
-      url: createnewmenur,
-      type: 'POST',
-      success: function(response) {
-        window.location = menuwr + '?menu=' + response.resp;
-      }
-    });
-  } else {
-    alert('Enter menu name!');
-    $('#menu-name').focus();
     return false;
   }
 }
