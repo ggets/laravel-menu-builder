@@ -38,7 +38,7 @@ function createItem(){
 			linkmenu:$('#custom-menu-item-url').val(),
 			rolemenu:$('#custom-menu-item-role').val(),
 			idmenu:$('#idmenu').val()},
-		url:route_menu_builder_create_item,
+		url:window.LFWO.routes.menu_builder.create_item,
 		type:'POST',
 		success:function(response){
 			window.location.reload();
@@ -86,7 +86,7 @@ function updateItem(id=0){
 	}
 	$.ajax({
 		data:data,
-		url:route_menu_builder_update_item,
+		url:window.LFWO.routes.menu_builder.update_item,
 		type:'POST',
 		beforeSend:function(xhr){
 			if(id){
@@ -108,7 +108,7 @@ function deleteItem(id){
 		data:{
 			id:id
 		},
-		url:route_menu_builder_delete_item,
+		url:window.LFWO.routes.menu_builder.delete_item,
 		type:'POST',
 		success:function(response){
 		}
@@ -120,7 +120,7 @@ function createMenu(){
 	dataType:'json',
 			data:{
 				menuname:$('#menu-name').val()},
-			url:route_menu_builder_create_menu,
+			url:window.LFWO.routes.menu_builder.create_menu,
 			type:'POST',
 			success:function(response){
 				window.location=(window.LFWO.csrf.token+'?menu='+response.resp);
@@ -140,7 +140,7 @@ function updateMenu(){
 			arraydata:window.LFWO.menu_builder.arraydata,
 			menuname:$('#menu-name').val(),
 			idmenu:$('#idmenu').val()},
-		url:route_menu_builder_update_menu,
+		url:window.LFWO.routes.menu_builder.update_menu,
 		type:'POST',
 		beforeSend:function(xhr){
 			$('#spincustomu2').show();
@@ -174,7 +174,7 @@ function deleteMenu(){
 		dataType:'json',
 			data:{
 				id:$('#idmenu').val()},
-			url:route_menu_builder_delete_menu,
+			url:window.LFWO.routes.menu_builder.delete_menu,
 			type:'POST',
 			beforeSend:function(xhr){
 				$('#spincustomu2').show();
