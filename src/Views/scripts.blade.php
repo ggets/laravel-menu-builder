@@ -10,7 +10,7 @@ let	menus={
 			"outFrom":("Out from %s"),
 			"menuFocus":("%1$s. Element menu %2$d of %3$d."),
 			"subMenuFocus":("%1$s. Menu of subelement %2$d of %3$s.")
-		},
+		};
 window.LFWO=(window.LFWO||{});
 window.LFWO.routes=(window.LFWO.routes||{});
 window.LFWO.routes.menu_builder=(window.LFWO.routes.menu_builder||{});

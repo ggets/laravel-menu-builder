@@ -218,5 +218,5 @@ function insertParam(key, value){
 	document.location.search=kvp.join('&');
 }
 wpNavMenu.registerChange=function(){
-	getmenus();
+	getMenu();
 };
