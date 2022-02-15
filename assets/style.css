@@ -1979,13 +1979,13 @@
   margin-bottom: 0;
 }
 #hwpwrap #nav-menus-frame {
-  margin-left: 300px;
+  /*margin-left: 300px;*/
   margin-top: 23px;
 }
 #hwpwrap #wpbody-content #menu-settings-column {
   display: inline;
   width: 281px;
-  margin-left: -300px;
+  /*margin-left: -300px;*/
   clear: both;
   float: left;
   padding-top: 0;
@@ -2319,7 +2319,7 @@
   padding: 10px 15px;
   height: auto;
   min-height: 20px;
-  width: 382px;
+  /*width: 382px;*/
   line-height: 30px;
   overflow: hidden;
   word-wrap: break-word;
@@ -2511,7 +2511,7 @@
 }
 #hwpwrap .menu-item-settings {
   display: block;
-  width: 402px;
+  /*width: 402px;*/
   padding: 10px 0 10px 10px;
   position: relative;
   z-index: 10;
