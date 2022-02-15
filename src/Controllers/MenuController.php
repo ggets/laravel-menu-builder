@@ -1,11 +1,11 @@
 <?php
-namespace ggets\Menu\Controllers;
-use ggets\Menu\Facades\Menu;
+namespace ggets\MenuBuilder\Controllers;
+use ggets\MenuBuilder\Facades\Menu;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use ggets\Menu\Models\Menus;
-use ggets\Menu\Models\MenuItems;
+use ggets\MenuBuilder\Models\Menus;
+use ggets\MenuBuilder\Models\MenuItems;
 class MenuController extends Controller{
 	public function createMenu(){
 		$menu=new Menus();

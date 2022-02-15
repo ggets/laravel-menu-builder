@@ -25,16 +25,16 @@
 	},
 	"autoload": {
 		"psr-4": {
-		  "ggets\\Menu\\": "src/"
+			"ggets\\MenuBuilder\\": "src/"
 		}
 	},
 	"extra": {
 		"laravel": {
 			"providers": [
-				"ggets\\Menu\\MenuServiceProvider"
+				"ggets\\MenuBuilder\\MenuServiceProvider"
 			],
 			"aliases": {
-				"Menu": "ggets\\Menu\\Facades\\Menu"
+				"MenuBuilder": "ggets\\MenuBuilder\\Facades\\MenuBuilder"
 			}
 		}
 	},

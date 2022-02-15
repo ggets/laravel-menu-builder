@@ -68,7 +68,7 @@ $currentUrl = url()->current();
 
 																<p class="button-controls">
 
-																	<a  href="#" onclick="addcustommenu()"  class="button-secondary submit-add-to-menu right"  >Add menu item</a>
+																	<a  href="#" onclick="createItem()"  class="button-secondary submit-add-to-menu right"  >Add menu item</a>
 																	<span class="spinner" id="spincustomu"></span>
 																</p>
 
@@ -97,17 +97,17 @@ $currentUrl = url()->current();
 
 														@if(request()->has('action'))
 														<div class="publishing-action">
-															<a onclick="createnewmenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Create menu</a>
+															<a onclick="createMenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Create menu</a>
 														</div>
 														@elseif(request()->has("menu"))
 														<div class="publishing-action">
-															<a onclick="getmenus()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Save menu</a>
+															<a onclick="getMenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Save menu</a>
 															<span class="spinner" id="spincustomu2"></span>
 														</div>
 
 														@else
 														<div class="publishing-action">
-															<a onclick="createnewmenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Create menu</a>
+															<a onclick="createMenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Create menu</a>
 														</div>
 														@endif
 													</div>
@@ -190,7 +190,7 @@ $currentUrl = url()->current();
 																		<span class="meta-sep hide-if-no-js"> | </span>
 																		<a class="item-cancel submitcancel hide-if-no-js button-secondary" id="cancel-{{$m->id}}" href="{{ $currentUrl }}?edit-menu-item={{$m->id}}&cancel=1424297719#menu-item-settings-{{$m->id}}">Cancel</a>
 																		<span class="meta-sep hide-if-no-js"> | </span>
-																		<a onclick="getmenus()" class="button button-primary updatemenu" id="update-{{$m->id}}" href="javascript:void(0)">Update item</a>
+																		<a onclick="getMenu()" class="button button-primary updatemenu" id="update-{{$m->id}}" href="javascript:void(0)">Update item</a>
 
 																	</div>
 
@@ -210,19 +210,19 @@ $currentUrl = url()->current();
 
 														@if(request()->has('action'))
 														<div class="publishing-action">
-															<a onclick="createnewmenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Create menu</a>
+															<a onclick="createMenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Create menu</a>
 														</div>
 														@elseif(request()->has("menu"))
-														<span class="delete-action"> <a class="submitdelete deletion menu-delete" onclick="deletemenu()" href="javascript:void(9)">Delete menu</a> </span>
+														<span class="delete-action"> <a class="submitdelete deletion menu-delete" onclick="deleteMenu()" href="javascript:void(9)">Delete menu</a> </span>
 														<div class="publishing-action">
 
-															<a onclick="getmenus()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Save menu</a>
+															<a onclick="getMenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Save menu</a>
 															<span class="spinner" id="spincustomu2"></span>
 														</div>
 
 														@else
 														<div class="publishing-action">
-															<a onclick="createnewmenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Create menu</a>
+															<a onclick="createMenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Create menu</a>
 														</div>
 														@endif
 													</div>

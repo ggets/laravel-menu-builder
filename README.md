@@ -20,19 +20,19 @@ composer require ggets/laravel-menu-builder
 2. Add the following class, to "providers" array in the file config/app.php (optional on laravel 5.5)
 
 ```php
-ggets\Menu\MenuServiceProvider::class,
+ggets\MenuBuilder\MenuServiceProvider::class,
 ```
 
 3. add facade in the file config/app.php (optional on laravel 5.5)
 
 ```php
-'Menu' => ggets\Menu\Facades\Menu::class,
+'Menu' => ggets\MenuBuilder\Facades\Menu::class,
 ```
 
 4. Run publish
 
 ```php
-php artisan vendor:publish --provider="ggets\Menu\MenuServiceProvider"
+php artisan vendor:publish --provider="ggets\MenuBuilder\MenuServiceProvider"
 ```
 
 5. Configure (optional) in **_config/menu.php_** :
@@ -73,8 +73,8 @@ On your view blade file
 Call the model class
 
 ```php
-use ggets\Menu\Models\Menus;
-use ggets\Menu\Models\MenuItems;
+use ggets\MenuBuilder\Models\Menus;
+use ggets\MenuBuilder\Models\MenuItems;
 
 ```
 
@@ -147,7 +147,7 @@ Now inside your blade template file place the menu using this simple example
 ### Get Menu Items By Menu ID
 
 ```php
-use ggets\Menu\Facades\Menu;
+use ggets\MenuBuilder\Facades\Menu;
 ...
 /*
 Parameter: Menu ID
@@ -161,7 +161,7 @@ $menuList = Menu::get(1);
 In this example, you must have a menu named _Admin_
 
 ```php
-use ggets\Menu\Facades\Menu;
+use ggets\MenuBuilder\Facades\Menu;
 ...
 /*
 Parameter: Menu ID
@@ -172,7 +172,7 @@ $menuList = Menu::getByName('Admin');
 
 ### Customization
 
-you can edit the menu interface in **_resources/views/vendor/wmenu/menu-html.blade.php_**
+you can edit the menu interface in **_resources/views/vendor/ggets-menu-builder/menu-html.blade.php_**
 
 ### Credits
 
@@ -183,4 +183,4 @@ you can edit the menu interface in **_resources/views/vendor/wmenu/menu-html.bla
 - Tested with laravel 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 6.x, 7.x
 
 ### KNOWN ISSUES
-- Not working with RTL websites [#21](https://github.com/ggets/wmenu-builder/issues/21) (pull requests are welcome)
+- Not working with RTL websites [#21](https://github.com/harimayco/wmenu-builder/issues/21) (pull requests are welcome)
