@@ -1983,11 +1983,11 @@
   margin-top: 23px;
 }
 #hwpwrap #wpbody-content #menu-settings-column {
-  display: inline;
-  width: 281px;
+  /*display: inline;*/
+  /*width: 281px;*/
   /*margin-left: -300px;*/
-  clear: both;
-  float: left;
+  /*clear: both;*/
+  /*float: left;*/
   padding-top: 0;
 }
 #hwpwrap #menu-settings-column .inside {
