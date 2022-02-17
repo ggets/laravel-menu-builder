@@ -4,6 +4,7 @@ $currentUrl = url()->current();
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link href="{{asset('vendor/ggets-menu-builder/style.css')}}" rel="stylesheet">
+<link href="{{asset('vendor/ggets-menu-builder/floating-labels.css')}}" rel="stylesheet">
 <div id="hwpwrap">
 	<div class="custom-wp-admin wp-admin wp-core-ui js   menu-max-depth-0 nav-menus-php auto-fold admin-bar">
 		<div id="wpwrap">
@@ -15,14 +16,13 @@ $currentUrl = url()->current();
 
 							<div class="manage-menus">
 								<form method="get" action="{{ $currentUrl }}">
-									<label for="menu" class="selected-menu">Select the menu you want to edit:</label>
+									<label for="menu" class="selected-menu"></label>
 
 									{!! Menu::select('menu', $menulist) !!}
 
 									<span class="submit-btn">
 										<input type="submit" class="button-secondary" value="Choose">
 									</span>
-									<span class="add-new-menu-action"> or <a href="{{ $currentUrl }}?action=edit&menu=0">Create new menu</a>. </span>
 								</form>
 							</div>
 							<div id="nav-menus-frame">
@@ -33,26 +33,20 @@ $currentUrl = url()->current();
 											<div class="menu-edit ">
 												<div id="nav-menu-header">
 													<div class="major-publishing-actions">
-														<label class="menu-name-label howto open-label" for="menu-name"> <span>Name</span>
-															<input name="menu-name" id="menu-name" type="text" class="menu-name regular-text menu-item-textbox" title="Enter menu name" value="@if(isset($indmenu)){{$indmenu->name}}@endif">
-															<input type="hidden" id="idmenu" value="@if(isset($indmenu)){{$indmenu->id}}@endif" />
-														</label>
-
-														@if(request()->has('action'))
-														<div class="publishing-action">
-															<a onclick="createMenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Create menu</a>
+														<div class="row">
+															<div id="menu-name-wrap" class="col-10 mb-0 mt-1 form-label-group">
+																<input id="menu-name" name="menu-name" type="text" class="form-control amenu-name regular-text menu-item-textbox" placeholder="Name" value="@if(isset($indmenu)){{$indmenu->name}}@endif">
+																<label for="menu-name">Name</label>
+																<input type="hidden" id="idmenu" value="@if(isset($indmenu)){{$indmenu->id}}@endif" />
+															</div>
+															<div class="col-2 publishing-action">
+																@if(request()->has('menu')&&request()->input('menu')!=='0')
+																	<a onclick="getMenu()" name="save_menu" id="save_menu_header" class="btn btn-primary menu-save"><spinner class="spinner mr-2" id="spincustomu2"></spinner>Save</a>
+																@else
+																	<a onclick="createMenu()" name="save_menu" id="save_menu_header" class="btn btn-primary menu-save">Create</a>
+																@endif
+															</div>
 														</div>
-														@elseif(request()->has("menu"))
-														<div class="publishing-action">
-															<a onclick="getMenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Save menu</a>
-															<span class="spinner" id="spincustomu2"></span>
-														</div>
-
-														@else
-														<div class="publishing-action">
-															<a onclick="createMenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Create menu</a>
-														</div>
-														@endif
 													</div>
 												</div>
 												<div id="post-body">
@@ -81,61 +75,49 @@ $currentUrl = url()->current();
 																				<div class="inside">
 																					<div class="customlinkdiv" id="customlinkdiv">
 
-  <div class="text-center mb-4">
-    <img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Floating labels</h1>
-    <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/css-placeholder-shown">Works in latest Chrome, Safari, Firefox, and IE 10/11 (prefixed).</a></p>
-  </div>
 
-  <div class="form-label-group">
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-    <label for="inputEmail">Email address</label>
-  </div>
-
-  <div class="form-label-group">
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <label for="inputPassword">Password</label>
-  </div>
-
-  <div class="checkbox mb-3">
-    <label>
-      <input type="checkbox" value="remember-me"> Remember me
-    </label>
-  </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-  <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2021</p>
-
-
-																						<p id="menu-item-url-wrap">
-																							<label class="howto" for="custom-menu-item-url"> <span>URL</span>&nbsp;&nbsp;&nbsp;
-																								<input id="custom-menu-item-url" name="url" type="text" class="menu-item-textbox " placeholder="url">
-																							</label>
-																						</p>
-
-																						<p id="menu-item-name-wrap">
-																							<label class="howto" for="custom-menu-item-name"> <span>Label</span>&nbsp;
-																								<input id="custom-menu-item-name" name="label" type="text" class="regular-text menu-item-textbox input-with-default-title" title="Label menu">
-																							</label>
-																						</p>
-
-																						@if(!empty($roles))
-																						<p id="menu-item-role_id-wrap">
-																							<label class="howto" for="custom-menu-item-name"> <span>Role</span>&nbsp;
-																								<select id="custom-menu-item-role" name="role">
-																									<option value="0">Select Role</option>
-																									@foreach($roles as $role)
-																										<option value="{{ $role->$role_pk }}">{{ ucfirst($role->$role_title_field) }}</option>
-																									@endforeach
-																								</select>
-																							</label>
-																						</p>
-																						@endif
-
-																						<p class="button-controls">
-
-																							<a  href="#" onclick="createItem()"  class="button-secondary submit-add-to-menu right">Add menu item</a>
-																							<span class="spinner" id="spincustomu"></span>
-																						</p>
+																						<div class="row">
+																							<div class="col-11">
+																								<div class="row">
+																									<div id="menu-item-name-wrap" class="col-6 form-label-group">
+																										<input id="menu-item-name" name="label" type="text" class="form-control regular-text menu-item-textbox" placeholder="Label">
+																										<label for="menu-item-name">Label</label>
+																									</div>
+																									<div id="menu-item-url-wrap" class="col-6 form-label-group">
+																										<input id="menu-item-url" name="url" type="text" class="form-control menu-item-textbox" placeholder="URL">
+																										<label for="menu-item-url">URL</label>
+																									</div>
+																								</div>
+																							</div>
+																							<div class="col-1">
+																								<div class="row">
+																									<div class="col-12 form-label-group">
+																										<a  href="#" onclick="createItem()" class="btn btn-info submit-add-to-menu right"><span class="spinner" id="spincustomu"></span>Add</a>
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																						<div class="row">
+																							<div class="col-11">
+																								<div class="row">
+																									<div id="menu-item-class-wrap" class="col-6 form-label-group">
+																										<input id="menu-item-class" name="class" type="text" class="form-control menu-item-textbox" placeholder="Classes (CSS) (optional)">
+																										<label for="menu-item-class">Classes (CSS) (optional)</label>
+																									</div>
+																									@if(!empty($roles))
+																									<div id="menu-item-role_id-wrap" class="col-6 form-label-group">
+																										<select id="menu-item-role" name="role">
+																											<option value="0">Select Role</option>
+																											@foreach($roles as $role)
+																												<option value="{{ $role->$role_pk }}">{{ ucfirst($role->$role_title_field) }}</option>
+																											@endforeach
+																										</select>
+																										<label for="menu-item-role_id"> <span>Role</span></label>
+																									</div>
+																									@endif
+																								</div>
+																							</div>
+																						</div>
 
 																					</div>
 																				</div>
@@ -212,10 +194,7 @@ $currentUrl = url()->current();
 																	<div class="menu-item-actions description-wide submitbox">
 
 																		<a class="btn btn-sm btn-danger item-delete submitdelete deletion" id="delete-{{$m->id}}" href="{{ $currentUrl }}?action=delete-menu-item&menu-item={{$m->id}}&_wpnonce=2844002501">Delete</a>
-																		<span class="meta-sep hide-if-no-js"> | </span>
-																		<a class="btn btn-sm btn-secondary item-cancel submitcancel hide-if-no-js button-secondary" id="cancel-{{$m->id}}" href="{{ $currentUrl }}?edit-menu-item={{$m->id}}&cancel=1424297719#menu-item-settings-{{$m->id}}">Cancel</a>
-																		<span class="meta-sep hide-if-no-js"> | </span>
-																		<a onclick="getMenu()" class="btn btn-sm btn-primary updatemenu" id="update-{{$m->id}}" href="javascript:void(0)">Update item</a>
+																		<a onclick="getMenu()" class="btn btn-sm btn-primary updatemenu" id="update-{{$m->id}}" href="javascript:void(0)">Update</a>
 
 																	</div>
 
@@ -225,31 +204,6 @@ $currentUrl = url()->current();
 															@endforeach
 															@endif
 														</ul>
-														<div class="menu-settings">
-
-														</div>
-													</div>
-												</div>
-												<div id="nav-menu-footer">
-													<div class="major-publishing-actions">
-
-														@if(request()->has('action'))
-														<div class="publishing-action">
-															<a onclick="createMenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Create menu</a>
-														</div>
-														@elseif(request()->has("menu"))
-														<span class="delete-action"> <a class="submitdelete deletion menu-delete" onclick="deleteMenu()" href="javascript:void(9)">Delete menu</a> </span>
-														<div class="publishing-action">
-
-															<a onclick="getMenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Save menu</a>
-															<span class="spinner" id="spincustomu2"></span>
-														</div>
-
-														@else
-														<div class="publishing-action">
-															<a onclick="createMenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Create menu</a>
-														</div>
-														@endif
 													</div>
 												</div>
 											</div>
@@ -259,15 +213,9 @@ $currentUrl = url()->current();
 							</div>
 						</div>
 
-						<div class="clear"></div>
 					</div>
-
-					<div class="clear"></div>
 				</div>
-				<div class="clear"></div>
 			</div>
-
-			<div class="clear"></div>
 		</div>
 	</div>
 </div>
