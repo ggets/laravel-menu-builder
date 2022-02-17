@@ -34,9 +34,9 @@ function createItem(){
 	$('#spincustomu').show();
 	$.ajax({
 		data:{
-		labelmenu:$('#custom-menu-item-name').val(),
-			linkmenu:$('#custom-menu-item-url').val(),
-			rolemenu:$('#custom-menu-item-role').val(),
+		labelmenu:$('#menu-item-name').val(),
+			linkmenu:$('#menu-item-url').val(),
+			rolemenu:$('#menu-item-role').val(),
 			idmenu:$('#idmenu').val()},
 		url:window.LFWO.routes.menu_builder.create_item,
 		type:'POST',

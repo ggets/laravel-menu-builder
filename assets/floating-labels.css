@@ -1,0 +1,177 @@
+
+.form-label-group {
+	position: relative;
+	margin-bottom: 1rem;
+}
+.form-label-group input,
+.form-label-group label {
+	padding: .5rem .75rem;
+}
+.form-label-group label {
+	position: absolute;
+	top: 0;
+	left: 1rem;
+	/*right: 1rem;*/
+	display: block;
+	/*width: 100%;*/
+	margin-bottom: 0; /* Override default `<label>` margin */
+	color: hsl(210, 8.8%, 52%);
+	pointer-events: none;
+	cursor: text; /* Match the input under the label */
+	border: 1px solid transparent;
+	border-radius: .25rem;
+	transition: all .1s ease-in-out;
+	font-style: italic;
+	z-index: 1;
+}
+.form-label-group input::-webkit-input-placeholder {
+	color: transparent;
+}
+.form-label-group input::-moz-placeholder {
+	color: transparent;
+}
+.form-label-group input:-ms-input-placeholder {
+	color: transparent;
+}
+.form-label-group input::-ms-input-placeholder {
+	color: transparent;
+}
+.form-label-group input::placeholder {
+	color: transparent;
+}
+.form-label-group input:not(:-moz-placeholder-shown) ~ label {
+	top: -.6rem;
+	padding: .05rem .4rem;
+	left: 1.4rem;
+	color: #777;
+	font-size: 12px;
+	font-style: normal;
+}
+.form-label-group input:not(:-ms-input-placeholder) ~ label {
+	top: -.6rem;
+	padding: .05rem .4rem;
+	left: 1.4rem;
+	color: #777;
+	font-size: 12px;
+	font-style: normal;
+}
+.form-label-group input:not(:placeholder-shown) ~ label {
+	top: -.6rem;
+	padding: .05rem .4rem;
+	left: 1.4rem;
+	color: #777;
+	font-size: 12px;
+	font-style: normal;
+}
+.form-label-group input:-webkit-autofill ~ label {
+	top: -.6rem;
+	padding: .05rem .4rem;
+	left: 1.4rem;
+	color: #777;
+	font-size: 12px;
+	font-style: normal;
+}
+.form-label-group input ~ label::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: -1rem;
+	left: 1rem;
+	right: 1rem;
+	z-index: -1;
+	background: transparent;
+	height: 0;
+	transition: all .1s;
+}
+.form-label-group input:not(:-moz-placeholder-shown) ~ label::before {
+	background: white;
+	height: .3rem;
+	top: .3rem;
+	left: 0;
+	right: 0;
+}
+.form-label-group input ~ label::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: -1rem;
+	left: 1rem;
+	right: 1rem;
+	z-index: -1;
+	background: transparent;
+	height: 0;
+	transition: all .1s;
+}
+.form-label-group input:not(:-ms-input-placeholder) ~ label::before {
+	background: white;
+	height: .3rem;
+	top: .3rem;
+	left: 0;
+	right: 0;
+}
+.form-label-group input ~ label::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: -1rem;
+	left: 1rem;
+	right: 1rem;
+	z-index: -1;
+	background: transparent;
+	height: 0;
+	transition: all .1s;
+}
+.form-label-group input:not(:placeholder-shown) ~ label::before {
+	background: white;
+	height: .3rem;
+	top: .3rem;
+	left: 0;
+	right: 0;
+}
+.form-label-group input ~ label::before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: -1rem;
+	left: 1rem;
+	right: 1rem;
+	z-index: -1;
+	background: transparent;
+	height: 0;
+	transition: all .1s;
+}
+.form-label-group input:-webkit-autofill ~ label::before {
+	background: white;
+	height: .3rem;
+	top: .3rem;
+	left: 0;
+	right: 0;
+}
+.major-publishing-actions .form-label-group input:not(:-moz-placeholder-shown) ~ label::before {
+	background: hsla(0,0%,96%,1);
+}
+.major-publishing-actions .form-label-group input:not(:-ms-input-placeholder) ~ label::before {
+	background: hsla(0,0%,96%,1);
+}
+.major-publishing-actions .form-label-group input:not(:placeholder-shown) ~ label::before {
+	background: hsla(0,0%,96%,1);
+}
+.major-publishing-actions .form-label-group input:-webkit-autofill ~ label::before {
+	background: hsla(0,0%,96%,1);
+}
+/* Fallback for Edge
+-------------------------------------------------- */
+@supports (-ms-ime-align: auto) {
+	.form-label-group {
+		display: -ms-flexbox;
+		display: flex;
+		-ms-flex-direction: column-reverse;
+		flex-direction: column-reverse;
+	}
+	.form-label-group label {
+		position: static;
+	}
+	.form-label-group input::-ms-input-placeholder {
+		color: #777;
+	}
+}

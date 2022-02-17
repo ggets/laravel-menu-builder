@@ -80,6 +80,32 @@ $currentUrl = url()->current();
 																			<div class="accordion-section-content" style="display: none;">
 																				<div class="inside">
 																					<div class="customlinkdiv" id="customlinkdiv">
+
+  <div class="text-center mb-4">
+    <img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h1 class="h3 mb-3 font-weight-normal">Floating labels</h1>
+    <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/css-placeholder-shown">Works in latest Chrome, Safari, Firefox, and IE 10/11 (prefixed).</a></p>
+  </div>
+
+  <div class="form-label-group">
+    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+    <label for="inputEmail">Email address</label>
+  </div>
+
+  <div class="form-label-group">
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <label for="inputPassword">Password</label>
+  </div>
+
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2021</p>
+
+
 																						<p id="menu-item-url-wrap">
 																							<label class="howto" for="custom-menu-item-url"> <span>URL</span>&nbsp;&nbsp;&nbsp;
 																								<input id="custom-menu-item-url" name="url" type="text" class="menu-item-textbox " placeholder="url">
@@ -107,7 +133,7 @@ $currentUrl = url()->current();
 
 																						<p class="button-controls">
 
-																							<a  href="#" onclick="createItem()"  class="button-secondary submit-add-to-menu right"  >Add menu item</a>
+																							<a  href="#" onclick="createItem()"  class="button-secondary submit-add-to-menu right">Add menu item</a>
 																							<span class="spinner" id="spincustomu"></span>
 																						</p>
 
@@ -180,16 +206,16 @@ $currentUrl = url()->current();
 																	@endif
 
 																	<p class="field-move hide-if-no-js description description-wide">
-																		<label> <span>Move</span> <a href="{{ $currentUrl }}" class="menus-move-up" style="display: none;">Move up</a> <a href="{{ $currentUrl }}" class="menus-move-down" title="Mover uno abajo" style="display: inline;">Move Down</a> <a href="{{ $currentUrl }}" class="menus-move-left" style="display: none;"></a> <a href="{{ $currentUrl }}" class="menus-move-right" style="display: none;"></a> <a href="{{ $currentUrl }}" class="menus-move-top" style="display: none;">Top</a> </label>
+																		<label><a href="{{ $currentUrl }}" class="btn btn-sm btn-light menus-move-up" style="display: none;">Move up</a> <a href="{{ $currentUrl }}" class="btn btn-sm btn-light menus-move-down" title="Mover uno abajo" style="display: inline;">Move Down</a> <a href="{{ $currentUrl }}" class="btn btn-sm btn-light menus-move-left" style="display: none;"></a> <a href="{{ $currentUrl }}" class="btn btn-sm btn-light menus-move-right" style="display: none;"></a> <a href="{{ $currentUrl }}" class="btn btn-sm btn-light menus-move-top" style="display: none;">Top</a> </label>
 																	</p>
 
 																	<div class="menu-item-actions description-wide submitbox">
 
-																		<a class="item-delete submitdelete deletion" id="delete-{{$m->id}}" href="{{ $currentUrl }}?action=delete-menu-item&menu-item={{$m->id}}&_wpnonce=2844002501">Delete</a>
+																		<a class="btn btn-sm btn-danger item-delete submitdelete deletion" id="delete-{{$m->id}}" href="{{ $currentUrl }}?action=delete-menu-item&menu-item={{$m->id}}&_wpnonce=2844002501">Delete</a>
 																		<span class="meta-sep hide-if-no-js"> | </span>
-																		<a class="item-cancel submitcancel hide-if-no-js button-secondary" id="cancel-{{$m->id}}" href="{{ $currentUrl }}?edit-menu-item={{$m->id}}&cancel=1424297719#menu-item-settings-{{$m->id}}">Cancel</a>
+																		<a class="btn btn-sm btn-secondary item-cancel submitcancel hide-if-no-js button-secondary" id="cancel-{{$m->id}}" href="{{ $currentUrl }}?edit-menu-item={{$m->id}}&cancel=1424297719#menu-item-settings-{{$m->id}}">Cancel</a>
 																		<span class="meta-sep hide-if-no-js"> | </span>
-																		<a onclick="getMenu()" class="button button-primary updatemenu" id="update-{{$m->id}}" href="javascript:void(0)">Update item</a>
+																		<a onclick="getMenu()" class="btn btn-sm btn-primary updatemenu" id="update-{{$m->id}}" href="javascript:void(0)">Update item</a>
 
 																	</div>
 

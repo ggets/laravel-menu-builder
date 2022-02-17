@@ -9,7 +9,7 @@ class Renderer{
 		$menu = new Menus();
 		$menuitems = new MenuItems();
 		$menulist = $menu->select(['id', 'name'])->get();
-		$menulist = $menulist->pluck('name', 'id')->prepend('Select menu', 0)->all();
+		$menulist = $menulist->pluck('name', 'id')->prepend('Create new menu', 0)->all();
 		//$roles = Role::all();
 		if ((request()->has("action") && empty(request()->input("menu"))) || request()->input("menu") == '0') {
 			return view('ggets-menu-builder::menu-html')->with("menulist" , $menulist);
