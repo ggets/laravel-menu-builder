@@ -18,10 +18,9 @@ window.LFWO.strings.menu_builder.oneThemeLocationNoMenus=("<oneThemeLocationNoMe
 window.LFWO.strings.menu_builder.moveUp=("Move up");
 window.LFWO.strings.menu_builder.moveDown=("Mover down");
 window.LFWO.strings.menu_builder.moveToTop=("Move top");
-window.LFWO.strings.menu_builder.moveUnder=("Move under of %s");
-window.LFWO.strings.menu_builder.moveOutFrom=("Out from under  %s");
+window.LFWO.strings.menu_builder.moveUnder=("Move into %s");
+window.LFWO.strings.menu_builder.moveOutOf=("Out of %s");
 window.LFWO.strings.menu_builder.under=("Under %s");
-window.LFWO.strings.menu_builder.outFrom=("Out from %s");
 window.LFWO.strings.menu_builder.menuFocus=("%1$s. Element menu %2$d of %3$d.");
 window.LFWO.strings.menu_builder.subMenuFocus=("%1$s. Menu of subelement %2$d of %3$s.");
 // ----------- Menu Builder:

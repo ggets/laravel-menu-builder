@@ -35,15 +35,15 @@ $currentUrl = url()->current();
 													<div class="major-publishing-actions">
 														<div class="row">
 															<div id="menu-name-wrap" class="col-10 mb-0 mt-1 form-label-group">
-																<input id="menu-name" name="menu-name" type="text" class="form-control amenu-name regular-text menu-item-textbox" placeholder="Name" value="@if(isset($indmenu)){{$indmenu->name}}@endif">
+																<input id="menu-name" name="menu-name" type="text" class="form-control amenu-name menu-item-textbox" placeholder="Name" value="@if(isset($indmenu)){{$indmenu->name}}@endif">
 																<label for="menu-name">Name</label>
 																<input type="hidden" id="idmenu" value="@if(isset($indmenu)){{$indmenu->id}}@endif" />
 															</div>
 															<div class="col-2 publishing-action">
 																@if(request()->has('menu')&&request()->input('menu')!=='0')
-																	<a onclick="getMenu()" name="save_menu" id="save_menu_header" class="btn btn-primary menu-save"><spinner class="spinner mr-2" id="spincustomu2"></spinner>Save</a>
+																	<a onclick="getMenu()" name="save_menu" id="save_menu_header" class="btn btn-primary menu-save"><spinner class="spinner mr-2" id="spincustomu2"></spinner><i class="fas fa-save"></i></a>
 																@else
-																	<a onclick="createMenu()" name="save_menu" id="save_menu_header" class="btn btn-primary menu-save">Create</a>
+																	<a onclick="createMenu()" name="save_menu" id="save_menu_header" class="btn btn-primary menu-save"><i class="fas fa-save"></i></a>
 																@endif
 															</div>
 														</div>
@@ -71,41 +71,37 @@ $currentUrl = url()->current();
 																	<ul class="outer-border">
 																		<li class="control-section accordion-section add-page" id="add-page">
 																			<h3 class="accordion-section-title hndle" tabindex="0"> Add Menu Item <span class="screen-reader-text">Press return or enter to expand</span></h3>
-																			<div class="accordion-section-content" style="display: none;">
+																			<div class="accordion-section-content py-1 pl-1 pr-0" style="display: none;">
 																				<div class="inside">
 																					<div class="customlinkdiv" id="customlinkdiv">
 
 
-																						<div class="row">
-																							<div class="col-11">
+																						<div class="row mr-0">
+																							<div class="col-11 pr-0">
 																								<div class="row">
-																									<div id="menu-item-name-wrap" class="col-6 form-label-group">
-																										<input id="menu-item-name" name="label" type="text" class="form-control regular-text menu-item-textbox" placeholder="Label">
+																									<div id="menu-item-name-wrap" class="col-5 form-label-group pr-0">
+																										<input id="menu-item-name" name="label" type="text" class="form-control menu-item-textbox" placeholder="Label">
 																										<label for="menu-item-name">Label</label>
 																									</div>
-																									<div id="menu-item-url-wrap" class="col-6 form-label-group">
+																									<div id="menu-item-url-wrap" class="col-7 form-label-group">
 																										<input id="menu-item-url" name="url" type="text" class="form-control menu-item-textbox" placeholder="URL">
 																										<label for="menu-item-url">URL</label>
 																									</div>
 																								</div>
 																							</div>
-																							<div class="col-1">
-																								<div class="row">
-																									<div class="col-12 form-label-group">
-																										<a  href="#" onclick="createItem()" class="btn btn-info submit-add-to-menu right"><span class="spinner" id="spincustomu"></span>Add</a>
-																									</div>
-																								</div>
+																							<div class="col-1 d-flex justify-content-end align-items-start px-0">
+																								<a onclick="createItem()" class="btn btn-info submit-add-to-menu right" href="#"><span class="spinner" id="spincustomu"></span><i class="fas fa-save"></i></a>
 																							</div>
 																						</div>
-																						<div class="row">
-																							<div class="col-11">
+																						<div class="row mr-0">
+																							<div class="col-11 pr-0">
 																								<div class="row">
-																									<div id="menu-item-class-wrap" class="col-6 form-label-group">
+																									<div id="menu-item-class-wrap" class="col-5 form-label-group pr-0">
 																										<input id="menu-item-class" name="class" type="text" class="form-control menu-item-textbox" placeholder="Classes (CSS) (optional)">
 																										<label for="menu-item-class">Classes (CSS) (optional)</label>
 																									</div>
 																									@if(!empty($roles))
-																									<div id="menu-item-role_id-wrap" class="col-6 form-label-group">
+																									<div id="menu-item-role_id-wrap" class="col-7 form-label-group">
 																										<select id="menu-item-role" name="role">
 																											<option value="0">Select Role</option>
 																											@foreach($roles as $role)
@@ -146,57 +142,87 @@ $currentUrl = url()->current();
 																<dl class="menu-item-bar">
 																	<dt class="menu-item-handle">
 																		<span class="item-title"> <span class="menu-item-title"> <span id="menutitletemp_{{$m->id}}">{{$m->label}}</span> <span style="color: transparent;">|{{$m->id}}|</span> </span> <span class="is-submenu" style="@if($m->depth==0)display: none;@endif">Subelement</span> </span>
-																		<span class="item-controls"> <span class="item-type">Link</span> <span class="item-order hide-if-js"> <a href="{{ $currentUrl }}?action=move-up-menu-item&menu-item={{$m->id}}&_wpnonce=8b3eb7ac44" class="item-move-up"><abbr title="Move Up">↑</abbr></a> | <a href="{{ $currentUrl }}?action=move-down-menu-item&menu-item={{$m->id}}&_wpnonce=8b3eb7ac44" class="item-move-down"><abbr title="Move Down">↓</abbr></a> </span> <a class="item-edit" id="edit-{{$m->id}}" title=" " href="{{ $currentUrl }}?edit-menu-item={{$m->id}}#menu-item-settings-{{$m->id}}"> </a> </span>
+																		<span class="item-controls"> <span class="item-type">@if($m->link){{"Link"}}@else{{"No link"}}@endif</span> <span class="item-order hide-if-js"> <a href="{{ $currentUrl }}?action=move-up-menu-item&menu-item={{$m->id}}&_wpnonce=8b3eb7ac44" class="item-move-up"><abbr title="Move Up">↑</abbr></a> | <a href="{{ $currentUrl }}?action=move-down-menu-item&menu-item={{$m->id}}&_wpnonce=8b3eb7ac44" class="item-move-down"><abbr title="Move Down">↓</abbr></a> </span> <a class="item-edit" id="edit-{{$m->id}}" title=" " href="{{ $currentUrl }}?edit-menu-item={{$m->id}}#menu-item-settings-{{$m->id}}"> </a> </span>
 																	</dt>
 																</dl>
 
 																<div class="menu-item-settings" id="menu-item-settings-{{$m->id}}">
 																	<input type="hidden" class="edit-menu-item-id" name="menuid_{{$m->id}}" value="{{$m->id}}" />
-																	<p class="description description-thin">
-																		<label for="edit-menu-item-title-{{$m->id}}"> Label
-																			<br>
-																			<input type="text" id="idlabelmenu_{{$m->id}}" class="widefat edit-menu-item-title" name="idlabelmenu_{{$m->id}}" value="{{$m->label}}">
-																		</label>
-																	</p>
 
-																	<p class="field-css-classes description description-thin">
-																		<label for="edit-menu-item-classes-{{$m->id}}"> Class CSS (optional)
-																			<br>
-																			<input type="text" id="clases_menu_{{$m->id}}" class="widefat code edit-menu-item-classes" name="clases_menu_{{$m->id}}" value="{{$m->class}}">
-																		</label>
-																	</p>
 
-																	<p class="field-css-url description description-wide">
-																		<label for="edit-menu-item-url-{{$m->id}}"> Url
-																			<br>
-																			<input type="text" id="url_menu_{{$m->id}}" class="widefat code edit-menu-item-url" id="url_menu_{{$m->id}}" value="{{$m->link}}">
-																		</label>
-																	</p>
 
-																	@if(!empty($roles))
-																	<p class="field-css-role description description-wide">
-																		<label for="edit-menu-item-role-{{$m->id}}"> Role
-																			<br>
-																			<select id="role_menu_{{$m->id}}" class="widefat code edit-menu-item-role" name="role_menu_[{{$m->id}}]" >
-																				<option value="0">Select Role</option>
-																				@foreach($roles as $role)
-																					<option @if($role->id == $m->role_id) selected @endif value="{{ $role->$role_pk }}">{{ ucwords($role->$role_title_field) }}</option>
-																				@endforeach
-																			</select>
-																		</label>
-																	</p>
-																	@endif
 
-																	<p class="field-move hide-if-no-js description description-wide">
-																		<label><a href="{{ $currentUrl }}" class="btn btn-sm btn-light menus-move-up" style="display: none;">Move up</a> <a href="{{ $currentUrl }}" class="btn btn-sm btn-light menus-move-down" title="Mover uno abajo" style="display: inline;">Move Down</a> <a href="{{ $currentUrl }}" class="btn btn-sm btn-light menus-move-left" style="display: none;"></a> <a href="{{ $currentUrl }}" class="btn btn-sm btn-light menus-move-right" style="display: none;"></a> <a href="{{ $currentUrl }}" class="btn btn-sm btn-light menus-move-top" style="display: none;">Top</a> </label>
-																	</p>
 
-																	<div class="menu-item-actions description-wide submitbox">
+																						<div class="d-flex flex-row">
+																							<div class="flex-grow-0 mr-2 field-move hide-if-no-js">
+																		<div class="d-flex flex-row">
+																			<button type="button" class="btn btn-sm btn-light" disabled="disabled"></button>
+																			<button type="button" class="btn btn-sm btn-light menus-move-top fas fa-arrow-alt-to-top"></button>
+																			<button type="button" class="btn btn-sm btn-light" disabled="disabled"></button>
+																		</div>
+																		<div class="d-flex flex-row">
+																			<button type="button" class="btn btn-sm btn-light" disabled="disabled"></button>
+																			<button type="button" class="btn btn-sm btn-light menus-move-up fas fa-arrow-alt-up"></button>
+																			<button type="button" class="btn btn-sm btn-light" disabled="disabled"></button>
+																		</div>
+																		<div class="d-flex flex-row">
+																			<button type="button" class="btn btn-sm btn-light menus-move-left fas fa-arrow-alt-left"></button>
+																			<button type="button" class="btn btn-sm btn-light" disabled="disabled"></button>
+																			<button type="button" class="btn btn-sm btn-light menus-move-right fas fa-arrow-alt-right"></button>
+																		</div>
+																		<div class="d-flex flex-row">
+																			<button type="button" class="btn btn-sm btn-light" disabled="disabled"></button>
+																			<button type="button" class="btn btn-sm btn-light menus-move-down fas fa-arrow-alt-down"></button>
+																			<button type="button" class="btn btn-sm btn-light" disabled="disabled"></button>
+																		</div>
 
-																		<a class="btn btn-sm btn-danger item-delete submitdelete deletion" id="delete-{{$m->id}}" href="{{ $currentUrl }}?action=delete-menu-item&menu-item={{$m->id}}&_wpnonce=2844002501">Delete</a>
-																		<a onclick="getMenu()" class="btn btn-sm btn-primary updatemenu" id="update-{{$m->id}}" href="javascript:void(0)">Update</a>
+																							</div>
+																							<div class="flex-grow-1">
+																								<div class="row mr-0">
+																									<div class="col-11 pr-0">
+																										<div class="row">
+																											<div id="menu-item-name-wrap" class="col-5 form-label-group pr-0">
+																												<input id="edit-menu-item-title-{{$m->id}}" name="idlabelmenu_{{$m->id}}" value="{{$m->label}}" type="text" class="form-control menu-item-textbox" placeholder="Label">
+																												<label for="edit-menu-item-title-{{$m->id}}">Label</label>
+																											</div>
+																											<div id="menu-item-url-wrap" class="col-7 form-label-group">
+																												<input id="edit-menu-item-url-{{$m->id}}" name="url_menu_{{$m->id}}" value="{{$m->link}}" type="text" class="form-control menu-item-textbox" placeholder="URL">
+																												<label for="edit-menu-item-url-{{$m->id}}">URL</label>
+																											</div>
+																										</div>
+																									</div>
+																									<div class="col-1 d-flex justify-content-end align-items-start px-0">
+																										<a onclick="getMenu()" class="btn btn-info" id="update-{{$m->id}}" href="javascript:void(0)"><span class="spinner" id="spincustomu"></span><i class="fas fa-save"></i></a>
+																									</div>
+																								</div>
+																								<div class="row mr-0">
+																									<div class="col-11 pr-0">
+																										<div class="row">
+																											<div id="menu-item-class-wrap" class="col-5 form-label-group pr-0">
+																												<input id="edit-menu-item-classes-{{$m->id}}" name="clases_menu_{{$m->id}}" value="{{$m->class}}" type="text" class="form-control menu-item-textbox" placeholder="Classes (CSS) (optional)">
+																												<label for="edit-menu-item-classes-{{$m->id}}">Classes (CSS) (optional)</label>
+																											</div>
+																											@if(!empty($roles))
+																											<div id="menu-item-role_id-wrap" class="col-7 form-label-group">
+																												<select id="edit-menu-item-role-{{$m->id}}" name="role_menu_[{{$m->id}}]">
+																													<option value="0">Select Role</option>
+																													@foreach($roles as $role)
+																													<option @if($role->id == $m->role_id) selected @endif value="{{ $role->$role_pk }}">{{ ucwords($role->$role_title_field) }}</option>
+																													<option value="{{ $role->$role_pk }}">{{ ucfirst($role->$role_title_field) }}</option>
+																													@endforeach
+																												</select>
+																												<label for="edit-menu-item-role-{{$m->id}}"> <span>Role</span></label>
+																											</div>
+																											@endif
+																										</div>
+																									</div>
+																									<div class="col-1 d-flex justify-content-end align-items-start px-0">
+																										<a onclick="getMenu()" class="btn btn-danger" id="delete-{{$m->id}}" href="{{ $currentUrl }}?action=delete-menu-item&menu-item={{$m->id}}&_wpnonce=2844002501"><span class="spinner" id="spincustomu"></span><i class="fas fa-trash-alt"></i></a>
+																									</div>
+																								</div>
+																							</div>
+																						</div>
 
-																	</div>
 
 																</div>
 																<ul class="menu-item-transport"></ul>

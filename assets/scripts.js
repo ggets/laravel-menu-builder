@@ -1663,19 +1663,20 @@ var wpNavMenu;
         initAccessibility: function() {
             var c = a("#menu-to-edit");
             b.refreshKeyboardAccessibility(), b.refreshAdvancedAccessibility(), c.on("click", ".menus-move-up", function(c) {
-                b.moveMenuItem(a(this).parents("li.menu-item").find("a.item-edit"), "up"), c.preventDefault()
+                b.moveMenuItem(a(this).parents("li.menu-item").find("button.item-edit"), "up"), c.preventDefault()
             }), c.on("click", ".menus-move-down", function(c) {
-                b.moveMenuItem(a(this).parents("li.menu-item").find("a.item-edit"), "down"), c.preventDefault()
+                b.moveMenuItem(a(this).parents("li.menu-item").find("button.item-edit"), "down"), c.preventDefault()
             }), c.on("click", ".menus-move-top", function(c) {
-                b.moveMenuItem(a(this).parents("li.menu-item").find("a.item-edit"), "top"), c.preventDefault()
+                b.moveMenuItem(a(this).parents("li.menu-item").find("button.item-edit"), "top"), c.preventDefault()
             }), c.on("click", ".menus-move-left", function(c) {
-                b.moveMenuItem(a(this).parents("li.menu-item").find("a.item-edit"), "left"), c.preventDefault()
+                b.moveMenuItem(a(this).parents("li.menu-item").find("button.item-edit"), "left"), c.preventDefault()
             }), c.on("click", ".menus-move-right", function(c) {
-                b.moveMenuItem(a(this).parents("li.menu-item").find("a.item-edit"), "right"), c.preventDefault()
+                b.moveMenuItem(a(this).parents("li.menu-item").find("button.item-edit"), "right"), c.preventDefault()
             })
         },
         refreshAdvancedAccessibility: function() {
-            a(".menu-item-settings .field-move a").css("display", "none"), a(".item-edit").each(function() {
+            a(".menu-item-settings .field-move button").attr("disabled", "disabled"),
+            a(".item-edit").each(function() {
                 var b, c, d, e, f, g, h, i, j, k = a(this),
                     l = k.closest("li.menu-item").first(),
                     m = l.menuItemDepth(),
@@ -1687,7 +1688,7 @@ var wpNavMenu;
                     s = l.prevAll(".menu-item-depth-" + m).first().find(".menu-item-title").text(),
                     t = a("#menu-to-edit li").length,
                     u = l.nextAll(".menu-item-depth-" + m).length;
-                0 !== p && (b = l.find(".menus-move-up"), b.prop("title", window.LFWO.strings.menu_builder.moveUp).css("display", "inline")), 0 !== p && n && (b = l.find(".menus-move-top"), b.prop("title", window.LFWO.strings.menu_builder.moveToTop).css("display", "inline")), p + 1 !== t && 0 !== p && (b = l.find(".menus-move-down"), b.prop("title", window.LFWO.strings.menu_builder.moveDown).css("display", "inline")), 0 === p && 0 !== u && (b = l.find(".menus-move-down"), b.prop("title", window.LFWO.strings.menu_builder.moveDown).css("display", "inline")), n || (b = l.find(".menus-move-left"), c = window.LFWO.strings.menu_builder.outFrom.replace("%s", r), b.prop("title", window.LFWO.strings.menu_builder.moveOutFrom.replace("%s", r)).html(c).css("display", "inline")), 0 !== p && l.find(".menu-item-data-parent-id").val() !== l.prev().find(".menu-item-data-db-id").val() && (b = l.find(".menus-move-right"), c = window.LFWO.strings.menu_builder.under.replace("%s", s), b.prop("title", window.LFWO.strings.menu_builder.moveUnder.replace("%s", s)).html(c).css("display", "inline")), n ? (d = a(".menu-item-depth-0"), e = d.index(l) + 1, t = d.length, f = window.LFWO.strings.menu_builder.menuFocus.replace("%1$s", o).replace("%2$d", e).replace("%3$d", t)) : (g = l.prevAll(".menu-item-depth-" + parseInt(m - 1, 10)).first(), h = g.find(".menu-item-data-db-id").val(), i = g.find(".menu-item-title").text(), j = a('.menu-item .menu-item-data-parent-id[value="' + h + '"]'), e = a(j.parents(".menu-item").get().reverse()).index(l) + 1, f = window.LFWO.strings.menu_builder.subMenuFocus.replace("%1$s", o).replace("%2$d", e).replace("%3$s", i)), k.prop("title", f).html(f)
+                0 !== p && (b = l.find(".menus-move-up"), b.prop("title", window.LFWO.strings.menu_builder.moveUp).removeAttr("disabled")), 0 !== p && n && (b = l.find(".menus-move-top"), b.prop("title", window.LFWO.strings.menu_builder.moveToTop).removeAttr("disabled")), p + 1 !== t && 0 !== p && (b = l.find(".menus-move-down"), b.prop("title", window.LFWO.strings.menu_builder.moveDown).removeAttr("disabled")), 0 === p && 0 !== u && (b = l.find(".menus-move-down"), b.prop("title", window.LFWO.strings.menu_builder.moveDown).removeAttr("disabled")), n || (b = l.find(".menus-move-left"), c = window.LFWO.strings.menu_builder.moveOutOf.replace("%s", r), b.prop("title", window.LFWO.strings.menu_builder.moveOutOf.replace("%s", r)).html(c).removeAttr("disabled")), 0 !== p && l.find(".menu-item-data-parent-id").val() !== l.prev().find(".menu-item-data-db-id").val() && (b = l.find(".menus-move-right"), c = window.LFWO.strings.menu_builder.under.replace("%s", s), b.prop("title", window.LFWO.strings.menu_builder.moveUnder.replace("%s", s)).html(c).removeAttr("disabled")), n ? (d = a(".menu-item-depth-0"), e = d.index(l) + 1, t = d.length, f = window.LFWO.strings.menu_builder.menuFocus.replace("%1$s", o).replace("%2$d", e).replace("%3$d", t)) : (g = l.prevAll(".menu-item-depth-" + parseInt(m - 1, 10)).first(), h = g.find(".menu-item-data-db-id").val(), i = g.find(".menu-item-title").text(), j = a('.menu-item .menu-item-data-parent-id[value="' + h + '"]'), e = a(j.parents(".menu-item").get().reverse()).index(l) + 1, f = window.LFWO.strings.menu_builder.subMenuFocus.replace("%1$s", o).replace("%2$d", e).replace("%3$s", i)), k.prop("title", f).html(f)
             })
         },
         refreshKeyboardAccessibility: function() {
@@ -1922,8 +1923,8 @@ var wpNavMenu;
         },
        
         eventOnClickMenuItemDelete: function(c) {
-        	
-        	var r = confirm("Do you want to delete this item ?");
+            
+            var r = confirm("Do you want to delete this item ?");
 if (r == true) {
    var d = parseInt(c.id.replace("delete-", ""), 10);
                deleteitem(d);
@@ -1931,10 +1932,10 @@ if (r == true) {
             return b.removeMenuItem(a("#menu-item-" + d)), b.registerChange(), !1
             
 }else{
-	return false;
+    return false;
 }
-        	
-        	
+            
+            
            
         },
         processQuickSearchQueryResponse: function(b, c, d) {
