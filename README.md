@@ -12,9 +12,13 @@ forked from https://github.com/lordmacu/wmenu
 0. Prerequisites
 
 0.1 jQuery
-0.1 jQueryUI (with plugins)
+
+0.2 jQueryUI (with plugins)
+
 0.3 Bootstrap
+
 0.4 Fontawesome
+
 
 To install dependencies via npm, run:
 ```bash
