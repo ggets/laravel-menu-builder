@@ -11,13 +11,13 @@ forked from https://github.com/lordmacu/wmenu
 
 0. Prerequisites
 
-0.1 jQuery
+0.1. jQuery
 
-0.2 jQueryUI (with plugins)
+0.2. jQueryUI (with plugins)
 
-0.3 Bootstrap
+0.3. Bootstrap
 
-0.4 Fontawesome
+0.4. Fontawesome
 
 
 To install dependencies via npm, run:
@@ -33,6 +33,8 @@ You are responsible for your own copy of FontAwesome.
 Then in your laravel Mix config (*resources/js/app.js*)
 
 ```php
+// resources/js/app.js
+//
 // jQuery
 window.$=window.jQuery=require('jquery');
 require('jquery-ui/ui/widget.js');
@@ -220,7 +222,7 @@ you can edit the menu interface in **_resources/views/vendor/ggets-menu-builder/
 
 ### Compatibility
 
-- Tested with laravel 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 6.x, 7.x
+- Tested with laravel 5.2, 5.3, 5.4, 5.5, 5.6, 5.7, 5.8, 6.x, 7.x, 8.x, 9.x
 
 ### KNOWN ISSUES
 - Not working with RTL websites [#21](https://github.com/harimayco/wmenu-builder/issues/21) (pull requests are welcome)
