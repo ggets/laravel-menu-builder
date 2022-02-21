@@ -9,9 +9,45 @@ forked from https://github.com/lordmacu/wmenu
 
 ### Installation
 
-1. Run
+0. Prerequisites
+
+0.1 jQuery
+0.1 jQueryUI (with plugins)
+0.3 Bootstrap
+0.4 Fontawesome
+
+To install dependencies via npm, run:
+```bash
+npm i jquery@3.6
+npm i jquery-ui@1.13
+npm i bootstrap@4.6
+```
+
+You are responsible for your own copy of FontAwesome.
+
+
+Then in your laravel Mix config (*resources/js/app.js*)
 
 ```php
+// jQuery
+window.$=window.jQuery=require('jquery');
+require('jquery-ui/ui/widget.js');
+require('jquery-ui/ui/widgets/mouse.js');
+require('jquery-ui/ui/widgets/sortable.js');
+require('jquery-ui/ui/widgets/draggable.js');
+require('jquery-ui/ui/widgets/droppable.js');
+// Bootstrap
+require('bootstrap');
+```
+
+Then, to compile your mix, run:
+```bash
+npm run dev
+```
+
+1. Run
+
+```bash
 composer require ggets/laravel-menu-builder
 ```
 

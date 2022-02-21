@@ -994,20 +994,14 @@ spinner{
   line-height: 180%;
 }
 #hwpwrap .accordion-section-title:after, #hwpwrap .control-section .accordion-section-title:after, #hwpwrap .nav-menus-php .item-edit:before, #hwpwrap .widget-top a.widget-action:after {
-  right: 0;
-  content: "\f0dd";
-  border: none;
-  background: 0 0;
-  font: 400 20px/1 FontAwesome;
-  speak: none;
-  display: block;
-  padding: 0;
-  text-indent: 0;
-  text-align: center;
-  position: relative;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-decoration: none !important;
+  /*down arrow*/
+}
+#hwpwrap .nav-menus-php .item-edit{
+  /*font-size: 0;*/
+  font-size: 1rem;
+}
+#hwpwrap .nav-menus-php .item-edit:before{
+  font-size: 1rem;
 }
 #hwpwrap .accordion-section-title:after, #hwpwrap .handlediv, #hwpwrap .item-edit, #hwpwrap .sidebar-name-arrow, #hwpwrap .widget-action {
   color: #aaa;
@@ -1031,14 +1025,14 @@ spinner{
   top: -2px;
 }
 #hwpwrap #customize-info.open .accordion-section-title:after, #hwpwrap .control-section.open .accordion-section-title:after, #hwpwrap .nav-menus-php .menu-item-edit-active .item-edit:before, #hwpwrap .widget.open .widget-top a.widget-action:after {
-  content: '\f0de';
+  /*up arrow*/
+  /*content: '\f0de';*/
 }
 #hwpwrap .ui-draggable-handle, #hwpwrap .ui-sortable-handle {
   -ms-touch-action: none;
   touch-action: none;
 }
 #hwpwrap .accordion-section {
-  border-bottom: 1px solid #dfdfdf;
   margin: 0;
 }
 #hwpwrap .accordion-section.open .accordion-section-content, #hwpwrap .no-js .accordion-section .accordion-section-content {
@@ -1054,6 +1048,7 @@ spinner{
   background: #fff;
 }
 #hwpwrap .accordion-section-title {
+  background: var(--light);
   margin: 0;
   padding: 12px 15px 15px;
   position: relative;
@@ -1733,7 +1728,7 @@ spinner{
 #hwpwrap #side-sortables .category-adder {
   margin: 0;
 }
-#hwpwrap .categorydiv div.tabs-panel, #hwpwrap .customlinkdiv div.tabs-panel, #hwpwrap .posttypediv div.tabs-panel, #hwpwrap .taxonomydiv div.tabs-panel, #hwpwrap .wp-tab-panel {
+#hwpwrap .categorydiv div.tabs-panel, #hwpwrap .menu-item-create div.tabs-panel, #hwpwrap .posttypediv div.tabs-panel, #hwpwrap .taxonomydiv div.tabs-panel, #hwpwrap .wp-tab-panel {
   min-height: 42px;
   max-height: 200px;
   overflow: auto;
@@ -1747,7 +1742,7 @@ spinner{
 #hwpwrap div.tabs-panel-inactive {
   display: none;
 }
-#hwpwrap #front-page-warning, #hwpwrap #front-static-pages ul, #hwpwrap .categorydiv ul.categorychecklist ul, #hwpwrap .customlinkdiv ul.categorychecklist ul, #hwpwrap .inline-editor ul.cat-checklist ul, #hwpwrap .posttypediv ul.categorychecklist ul, #hwpwrap .taxonomydiv ul.categorychecklist ul, #hwpwrap ul.export-filters {
+#hwpwrap #front-page-warning, #hwpwrap #front-static-pages ul, #hwpwrap .categorydiv ul.categorychecklist ul, #hwpwrap .menu-item-create ul.categorychecklist ul, #hwpwrap .inline-editor ul.cat-checklist ul, #hwpwrap .posttypediv ul.categorychecklist ul, #hwpwrap .taxonomydiv ul.categorychecklist ul, #hwpwrap ul.export-filters {
   margin-left: 18px;
 }
 #hwpwrap ul.categorychecklist li {
@@ -1993,6 +1988,18 @@ spinner{
   /*float: left;*/
   padding-top: 0;
 }
+#hwpwrap #wpbody-content #menu-settings-column .accordion-section.add-page .accordion-section-title button .item-structure{
+  display: none;
+}
+
+#hwpwrap #wpbody-content #menu-settings-column .accordion-section.add-page .accordion-section-title button .fa-plus,
+#hwpwrap #wpbody-content #menu-settings-column .accordion-section.add-page .accordion-section-title button span{
+  font-size: .8rem;
+}
+#hwpwrap #wpbody-content #menu-settings-column .accordion-section.add-page .accordion-section-title button span{
+  font-weight: 700;
+  letter-spacing: .02rem;
+}
 #hwpwrap #menu-settings-column .inside {
   clear: both;
   margin: 10px 0 0;
@@ -2179,10 +2186,10 @@ spinner{
   margin: 0;
   padding: 0px;
 }
-#hwpwrap .customlinkdiv .howto input {
+#hwpwrap .menu-item-create .howto input {
   width: 180px;
 }
-#hwpwrap .customlinkdiv p {
+#hwpwrap .menu-item-create p {
   margin-top: 0;
 }
 #hwpwrap #nav-menu-theme-locations .howto select {
@@ -2261,12 +2268,22 @@ spinner{
   padding-right: 5px;
 }
 #hwpwrap .menu-item-textbox {
-  width: 100%;
+  max-width: 100%;
 }
 #hwpwrap .nav-menus-php .howto span {
   margin-top: 6px;
   display: block;
   float: left;
+}
+#hwpwrap .menu-item-create .input-group .input-group-prepend .btn,
+#hwpwrap .menu-item-create .input-group .input-group-append .btn{
+  color: var(--dark)!important;
+}
+#hwpwrap .menu-item-create .input-group .input-group-prepend .btn:hover,
+#hwpwrap .menu-item-create .input-group .input-group-append .btn:hover,
+#hwpwrap .menu-item-create .input-group .input-group-prepend .btn:active,
+#hwpwrap .menu-item-create .input-group .input-group-append .btn:active{
+  color: var(--light)!important;
 }
 #hwpwrap .quick-search {
   width: 190px;
@@ -2329,6 +2346,7 @@ spinner{
   line-height: 30px;
   overflow: hidden;
   word-wrap: break-word;
+  background: var(--light);
 }
 #hwpwrap .menu-item-bar .menu-item-handle:hover {
   border-color: #999;
@@ -2354,6 +2372,7 @@ spinner{
   line-height: 20px;
   display: block;
   margin-right: 13em;
+  flex: 1;
 }
 #hwpwrap .menu-item-handle .menu-item-title.no-title {
   color: #999;
@@ -2480,15 +2499,15 @@ spinner{
 #hwpwrap .item-type {
   color: #777;
   font-size: 12px;
-  padding: 12px 10px;
+  padding: 10px;
   line-height: 18px;
   display: block;
 }
 #hwpwrap .item-controls {
   font-size: 12px;
   position: absolute;
-  right: 20px;
-  top: -1px;
+  right: 10px;
+  /*top: -1px;*/
 }
 #hwpwrap .item-controls a {
   text-decoration: none;
@@ -2500,17 +2519,25 @@ spinner{
   padding-right: 10px;
 }
 #hwpwrap .nav-menus-php .item-edit {
-  position: absolute;
-  right: -20px;
-  top: 0;
   display: block;
-  width: 30px;
-  height: 40px;
-  margin-right: 0 !important;
-  text-indent: 100%;
   outline: 0;
   overflow: hidden;
   white-space: nowrap;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .02rem;
+}
+#hwpwrap .nav-menus-php .item-edit:before {
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 900;
+  content: "\f044";
+  left: -.5rem;
+  position: relative;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+#hwpwrap .nav-menus-php .item-edit .item-structure {
+  display: none;
 }
 #hwpwrap .menu-instructions-inactive {
   display: none;
@@ -2525,6 +2552,12 @@ spinner{
   border-top: none;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+#hwpwrap .menu-item-edit-active .menu-item-settings {
+  display: block;
+}
+#hwpwrap .menu-item-edit-inactive .menu-item-settings {
+  display: none;
 }
 #hwpwrap .menu-item-settings .field-move button.btn {
   display: block;
@@ -2543,11 +2576,15 @@ spinner{
 #hwpwrap .menu-item-settings .field-move button.btn:disabled {
   opacity: .45;
 }
-#hwpwrap .menu-item-edit-active .menu-item-settings {
-  display: block;
+#hwpwrap .menu-item-settings .input-group .input-group-prepend .btn,
+#hwpwrap .menu-item-settings .input-group .input-group-append .btn{
+  color: var(--dark)!important;
 }
-#hwpwrap .menu-item-edit-inactive .menu-item-settings {
-  display: none;
+#hwpwrap .menu-item-settings .input-group .input-group-prepend .btn:hover,
+#hwpwrap .menu-item-settings .input-group .input-group-append .btn:hover,
+#hwpwrap .menu-item-settings .input-group .input-group-prepend .btn:active,
+#hwpwrap .menu-item-settings .input-group .input-group-append .btn:active{
+  color: var(--light)!important;
 }
 #hwpwrap .add-menu-item-pagelinks {
   margin: .5em auto;
@@ -2651,7 +2688,7 @@ spinner{
   #hwpwrap .nav-menus-php .item-controls .item-type {
     margin-top: 2px;
   }
-  #hwpwrap .nav-menus-php .customlinkdiv .howto input {
+  #hwpwrap .nav-menus-php .menu-item-create .howto input {
     width: 65%;
   }
   #hwpwrap .nav-menus-php .quick-search {
