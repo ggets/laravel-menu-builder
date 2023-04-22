@@ -1,12 +1,15 @@
 {
 	"name": "ggets/laravel-menu-builder",
-	"description": "Drag and Drop menu generator like Wordpress for Laravel 9",
+	"description": "Drag and Drop menu generator like Wordpress for Laravel 9+",
 	"keywords": ["Laravel", "Menu", "Wordpress", "Builder"],
+	"homepage": "https://dreamflame.in",
+	"license": "Apache-2.0",
 	"authors": [
 		{
 			"name": "Galen Getsov",
 			"email": "4815620+ggets@users.noreply.github.com",
-			"role": "Developer"
+			"role": "Developer",
+			"homepage": "https://dreamflame.in"
 		},
 		{
 			"name": "Rendy Harimayco",
@@ -21,7 +24,7 @@
 	],
 	"require": {
 		"php": ">=7.2 || ^8.1",
-		"illuminate/support": "^5.6 || 6.* || 7.* || 8.* || 9.*"
+		"illuminate/support": "^5.6 || 6.* || 7.* || 8.* || 9.* || 10.*"
 	},
 	"autoload": {
 		"psr-4": {
